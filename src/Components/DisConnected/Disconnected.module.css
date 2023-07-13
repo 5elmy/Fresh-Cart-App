@@ -1,0 +1,9 @@
+.overlay
+{
+    position:fixed;
+    bottom:30px;
+    left:30px;
+    z-index: 99999;
+    width:15rem;
+    text-align: center;
+}
