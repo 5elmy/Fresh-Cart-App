@@ -14,6 +14,8 @@ export default function StoreContextProvider({children})
     
    const [count, setCount] = useState(0)
    const [dataWish, setWishData] = useState([])
+   const [cartId,setCartId]=useState(null)
+  
 
 
 
@@ -25,6 +27,31 @@ export default function StoreContextProvider({children})
         .catch(err=>err)
 
     }
+    
+    function onlinePayment(cartId,shippingAddress)
+    {
+        let token = localStorage.getItem("token")
+        if(token)
+        {
+            
+            return axios.post(`${baseUrl}/orders/checkout-session/${cartId}?url=http://localhost:3000`,{shippingAddress},{headers:{token}})
+            .then(data=>data)
+            .catch(err=>err)
+        }
+    }
+    function cashPayment(cartId,shippingAddress)
+    {
+        let token = localStorage.getItem("token")
+        if(token)
+        {
+            setCount(0)
+            return axios.post(`${baseUrl}/orders/${cartId}`,{shippingAddress},{headers:{token}})
+            .then(data=>data)
+            .catch(err=>err)
+        }
+    }
+  
+
    
     function getUserCart(token ){
 
@@ -54,6 +81,8 @@ export default function StoreContextProvider({children})
           axios.get(`${baseUrl}/cart`,{headers:{token}})
         .then(data=>{
             setCount(data.data.numOfCartItems)
+            setCartId(data.data.data._id)
+            console.log({cartId:data.data.data._id});
         })
         .catch(err=>{
             //console.log(err)
@@ -62,7 +91,7 @@ export default function StoreContextProvider({children})
      
     }
     function addToWishList(token , productId){
-        setWishData(productId)
+         setWishData(productId)
     
         return  axios.post(`${baseUrl}/wishlist`,{productId},{headers:{token}})
          .then(data=>data)
@@ -86,6 +115,14 @@ export default function StoreContextProvider({children})
  
      }
 
+     function userOrders (){
+        let userData = localStorage.getItem("userData")
+        let token= localStorage.getItem('token')
+         userData =(JSON.parse(userData))
+        console.log(userData);
+         return axios.get(`${baseUrl}/orders/user/${userData?.id}`,{headers:{token}}).then(data=>data).catch(err=>err)
+     }
+
 
    
    
@@ -101,8 +138,8 @@ export default function StoreContextProvider({children})
       
       
     },[])
-    return  <storeContext.Provider value={{addToCart ,getUserCart,removeCartItem,updatequantity,getCartCount,
-    count,getUserWishList ,addToWishList,removeWishListItem,dataWish  }}>
+    return  <storeContext.Provider value={{addToCart ,getUserCart,removeCartItem,updatequantity,getCartCount,onlinePayment,cartId,userOrders,cashPayment
+    ,count,getUserWishList ,addToWishList,removeWishListItem,dataWish  }}>
         {children}
     </storeContext.Provider>
 

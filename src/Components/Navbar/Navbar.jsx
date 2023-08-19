@@ -10,6 +10,7 @@ import { authContext } from "../Context/AuthContext.jsx"
 export default function Navbar() {
  let {count } =   useContext(storeContext)
  let {userData,LogOut} =  useContext(authContext)
+ let token = localStorage.getItem("token")
  //console.log({hamada:!userData});
   
   return (<>
@@ -42,7 +43,7 @@ export default function Navbar() {
 
                     <ul className="navbar-nav ms-auto mb-2 mb-lg-0 ">
 
-                    {userData  ? <>
+                    {token  ? <>
                         <li className="nav-item ">
                             <Link to='/wishlist' type="button" className="btn  position-relative me-3 ">
                                 WishList <i className="fa-regular fa-heart"></i>
@@ -69,7 +70,7 @@ export default function Navbar() {
                         {/* <li className="nav-item">
                         <NavLink className="nav-link" to="/">LogOut</NavLink>
                         </li> */}
-                      {!userData ? <>   <li className="nav-item">
+                      {!token ? <>   <li className="nav-item">
                         <NavLink className="nav-link" to="/register">Sign UP</NavLink>
                         </li>
                         <li className="nav-item">

@@ -4,9 +4,65 @@ import { useParams } from 'react-router-dom'
 import { baseUrl } from '../../Utils/baseUrl.js';
 import Slider from 'react-slick';
 import ProjectLoading from '../ProjectLoading/ProjectLoading.jsx';
+import { storeContext } from '../Context/CartContext.jsx';
+import { useContext } from 'react';
+import { notify } from '../../Utils/notify.js';
 
 export default function ProductDetails() {
+  const [wishlist, setWishList] = useState([]);
+
     let {productId} = useParams()
+   let {getCartCount,addToCart ,addToWishList,removeWishListItem,getUserWishList }= useContext(storeContext);
+
+   const [bol , setbol] = useState(1)
+    async function getWhisList()
+    {
+      let token = localStorage.getItem("token")
+      if(token)
+      {
+        let response = await getUserWishList(token)
+      localStorage.setItem("wishlist",JSON.stringify(response.data.data))
+   
+     //console.log({response});
+       setWishList(response.data?.data)
+       console.log({getWhisList:wishlist}); 
+        
+   
+      }
+    }
+    async function addProductWishList(productId ){
+     
+     let token = localStorage.getItem("token");
+     console.log({num:1});
+     if(token)
+     {  
+     console.log({num1:2});
+   
+         let response =  await addToWishList(token , productId)
+         console.log({response});
+         console.log({WishList:response.data.data});  
+         setWishList(response.data.data)   
+         setbol(1)
+   
+         if (response.status === 200)
+         {  
+          getCartCount(token)
+          notify({msg:'Product added successfully to your wishlist',type:'success'})
+         }
+     }
+     }
+     async function deleteitem (productId)
+     {
+       let token = localStorage.getItem("token")
+       if(token)
+       {
+         let response = await removeWishListItem(token ,productId)
+        // //console.log({response});
+        setWishList(response.data.data)
+        setbol(1)
+       }
+     }
+     
     //console.log(productId);
  const [product, setProduct] = useState([])
  const settings = {
@@ -29,9 +85,31 @@ export default function ProductDetails() {
     let {data} = await axios.get(`${baseUrl}/products/${productId}`)
     setProduct(data.data)
  }
+ async function addProduct(productId){
+  let token = localStorage.getItem("token");
+  if(token)
+  {
+      let response =  await addToCart(token , productId)
+      //console.log({response});
+       
+      if (response.status === 200)
+      {
+       getCartCount(token)
+       notify({msg:'Product added to cart successfully',type:'success'})
+      }
+
+  }
+  }
+
  useEffect(()=>{
-    getProduct()
- },[])
+  getProduct()
+  if(bol==1) {
+   getWhisList()
+   setbol(0)
+
+  }
+  
+},[wishlist])
 
 
   return (
@@ -53,7 +131,8 @@ export default function ProductDetails() {
                 <div className='mt-5 product py-5'>
                     <div className='d-flex justify-content-between align-items-center '>
                         <h3 className='my-2'>{product.title}</h3> 
-                        <i  className="fa-regular fa-heart"></i>
+                        {wishlist.some(obj => obj._id === product._id)?<i onClick={()=>{deleteitem(product._id) }} className="fa-solid fa-heart text-danger"></i> : <i onClick={()=>{addProductWishList(product._id)}} className="fa-regular fa-heart "></i> }
+
 
                     </div>
                     <p className='my-2'>{product.description}</p>
@@ -69,7 +148,7 @@ export default function ProductDetails() {
                         </div>
                            
                    
-                            <button className='btn bg-main text-white w-100 mt-3'>Add To Cart</button>
+                        <button onClick={()=>{addProduct(product._id)}} className='btn bg-main text-white w-100'>Add To Cart</button>
                     
                 </div>
             </div>

@@ -21,8 +21,29 @@ import { Offline } from 'react-detect-offline';
 import ProjectLoading from './Components/ProjectLoading/ProjectLoading.jsx';
 import ForgetPassword from './Components/ForgetPassword/ForgetPassword.jsx';
 import ResetPassword from './Components/ResetPassword/ResetPassword.jsx';
+import Orders from './Components/Orders/Orders.jsx';
+import jwtDecode from 'jwt-decode';
+import { useState } from 'react';
+import { useEffect } from 'react';
 
 export default function App() {
+  const [userData1, setUserData1] = useState(null);
+  function saveUserData()
+  {
+  let encodedToken=localStorage.getItem('token');
+  let decodedToken=jwtDecode(encodedToken);
+  setUserData1(decodedToken);
+  localStorage.setItem('userData',JSON.stringify( decodedToken))
+
+  console.log(decodedToken);
+  }
+
+  useEffect(() => {
+    if(localStorage.getItem('token') !== null && userData== null)
+    {
+      saveUserData();
+    }
+  }, [])
   let {userData} = useContext(authContext)
   let routes = createBrowserRouter([
     {
@@ -30,6 +51,7 @@ export default function App() {
       element:<AuthContextProvider><MainLayOut/></AuthContextProvider> ,
       children:[
         {index:true , element:<HomePages/>},
+        {path:"home" , element:<HomePages/>},
         {path:"products" , element:<Products/>},
         {path:"product-details/:productId" , element: <ProtectedRoute><ProductDetails/></ProtectedRoute>},
         {path:"register" , element:<Register/>},
@@ -39,6 +61,7 @@ export default function App() {
         {path:"wishlist" , element:<ProtectedRoute userData={userData}><WishList/></ProtectedRoute>},
         {path:"brands" , element:<Brand/>},
         {path:"categories" , element:<Categories/>},
+        {path:"allorders" , element:<Orders/>},
         {path:"load" , element:<ProjectLoading/>},
         {path:"forgetPassword" , element:<ForgetPassword/>},
         {path:"reset-password" , element:<ResetPassword/>},

@@ -10,6 +10,9 @@ export default function WishList() {
  let {addToCart,getCartCount ,removeWishListItem }= useContext(storeContext)
 
   const [whishData, setwhishData] = useState([])
+  const [bol , setbol] = useState(1)
+
+  
 
   async function addProduct(productId){
     let token = localStorage.getItem("token");
@@ -21,7 +24,7 @@ export default function WishList() {
         if (response.status === 200)
         {
          getCartCount(token)
-         notify({msg:'Product added successfully',type:'success'})
+         notify({msg:'Product added to cart successfully',type:'success'})
         }
     }
   
@@ -33,9 +36,13 @@ export default function WishList() {
     let token = localStorage.getItem("token")
     if(token)
     {
+     
       let response = await getUserWishList(token)
      console.log(response.data.data);
+     console.log("789789789789789");
      setwhishData(response.data?.data)
+    
+    
      
       //setWishProduct(response.data.data?.products)
 
@@ -45,18 +52,34 @@ export default function WishList() {
 
   async function deleteitem (productId)
   {
+    
+    console.log("deleted");
     let token = localStorage.getItem("token")
     if(token)
     {
       let response = await removeWishListItem(token ,productId)
      // //console.log({response});
+     notify({msg:'Product deleted from wishList successfully',type:'success'})
+    
       setwhishData(response.data.data)
+      setbol(1)
+    
     }
+   
   }
 
+  
+ 
+
   useEffect(() => {
-    getWhisList()
-    },[whishData])
+    if(bol==1){
+          getWhisList()
+          setbol(0)
+    }
+  
+    },[whishData])  
+    // 
+    
   return (<>
      {whishData?.length !=0 ?  <>
     <div  className="container bg-main-light mt-5 py-5">

@@ -10,6 +10,7 @@ export default function Product({products}) {
    let {addToCart,getCartCount ,addToWishList,removeWishListItem,getUserWishList }= useContext(storeContext);
 //    const [IsWishListActive, setIsWishListActive] = useState(false);
    const [wishlist, setWishList] = useState([]);
+   const [bol , setbol] = useState(1)
 
 // console.log({wishlist});
  async function getWhisList()
@@ -28,6 +29,7 @@ export default function Product({products}) {
    }
  }
  async function addProductWishList(productId ){
+  
   let token = localStorage.getItem("token");
   console.log({num:1});
   if(token)
@@ -38,6 +40,7 @@ export default function Product({products}) {
       console.log({response});
       console.log({WishList:response.data.data});  
       setWishList(response.data.data)   
+      setbol(1)
 
       if (response.status === 200)
       {  
@@ -57,7 +60,7 @@ export default function Product({products}) {
         if (response.status === 200)
         {
          getCartCount(token)
-         notify({msg:'Product added successfully',type:'success'})
+         notify({msg:'Product added to cart successfully',type:'success'})
         }
 
     }
@@ -70,12 +73,19 @@ export default function Product({products}) {
         let response = await removeWishListItem(token ,productId)
        // //console.log({response});
        setWishList(response.data.data)
+       setbol(1)
       }
     }
 
     useEffect(()=>{
-      getWhisList()
+      if(bol==1) {
+       getWhisList()
+       setbol(0)
+
+      }
+      
     },[wishlist])
+    // wishlist
   return (
     <>
 
