@@ -101,13 +101,10 @@ export default function Product({products}) {
                        <p className='fw-bolder'>{item.title.split(" ").slice(0,10).join(" ")}</p>
                             
 
-                         {/* <button className='border-0 bg-transparent' onClick={()=>{ wishlist?.includes(item._id) ? deleteitem(item._id) : addProductWishList(item._id )  }}> */}
-                         
-                         {/* {wishlist?.includes(item._id) ? <i  className='fa-solid fa-heart text-danger'></i> :<i className='fa-regular fa-heart'></i>
-                         } */} 
+                        
                        {wishlist.some(obj => obj._id === item._id)?<i onClick={()=>{deleteitem(item._id) }} className="fa-solid fa-heart text-danger"></i> : <i onClick={()=>{addProductWishList(item._id)}} className="fa-regular fa-heart "></i> }
                            
-                         {/* </button> */}
+                         
                        </div>
                         
                         <div className='d-flex mx-2 justify-content-between align-item center my-4'>
