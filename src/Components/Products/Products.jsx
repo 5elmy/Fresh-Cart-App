@@ -113,23 +113,23 @@ export default function Products() {
            
         </div> </>: <ProjectLoading/>}
         <ReactPaginate
-      previousLabel={'< previous'}
-      nextLabel={'next >'}
-      breakLabel={'...'}
-      pageCount={2}
-      pageRangeDisplayed={3}
-      marginPagesDisplayed={2}
-      onPageChange={handlePageClick}
-      containerClassName={'pagination justify-content-center py-5'}
-      pageClassName={'page-item'}
-      pageLinkClassName={'page-link bg-ligth text-success'}
-      previousClassName={'page-item'}
-      previousLinkClassName={'page-link bg-ligth text-success'}
-      nextClassName={'page-item'}
-      nextLinkClassName={'page-link bg-ligth text-success'}
-      breakClassName={'page-item'}
-      breakLinkClassName={'page-link bg-ligth text-success'}
-      // activeClassName={'active'}
+       previousLabel={'< previous'}
+       nextLabel={'next >'}
+       breakLabel={'...'}
+       pageCount={2}
+       pageRangeDisplayed={3}
+       marginPagesDisplayed={2}
+       onPageChange={handlePageClick}
+       containerClassName={'pagination justify-content-center py-5'}
+       pageClassName={'page-item'}
+       pageLinkClassName={'page-link shadow-none bg-ligth text-success'}
+       previousClassName={'page-item'}
+       previousLinkClassName={'page-link  shadow-none bg-ligth text-success'}
+       nextClassName={'page-item'}
+       nextLinkClassName={'page-link  bg-ligth text-success'}
+       breakClassName={'page-item'}
+       breakLinkClassName={'page-link bg-ligth text-success '}
+      //  activeClassName={'active'}
     />
        
     </>

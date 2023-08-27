@@ -10,7 +10,7 @@ import { notify } from '../../Utils/notify.js';
 
 export default function ProductDetails() {
   const [wishlist, setWishList] = useState([]);
-
+ 
     let {productId} = useParams()
    let {getCartCount,addToCart ,addToWishList,removeWishListItem,getUserWishList }= useContext(storeContext);
 
@@ -62,7 +62,8 @@ export default function ProductDetails() {
         setbol(1)
        }
      }
-     
+    
+
     //console.log(productId);
  const [product, setProduct] = useState([])
  const settings = {
@@ -71,6 +72,11 @@ export default function ProductDetails() {
         <a>
           <img src={product.images[i] } className="img-fluid"  alt="" />
         </a>
+        // <ul>
+        //   <li><a>
+        //   <img src={product.images[i] } className="img-fluid"  alt="" />
+        // </a></li>
+        // </ul>
       );
     },
     dots: true,
@@ -81,6 +87,28 @@ export default function ProductDetails() {
     slidesToScroll: 1
   };
 
+  // const settings = {
+  //   customPaging: function(i) {
+  //     return (
+  //       <a>
+  //         <img src={product.images[i] } className="img-fluid"  alt="" />
+  //       </a>
+  //     );
+  //   },
+  //   dots: true,
+  //   infinite: true,
+  //   slidesToShow: 3,
+  //   slidesToScroll: 1,
+  //   vertical: true,
+  //   verticalSwiping: true,
+  //   beforeChange: function(currentSlide, nextSlide) {
+  //     console.log("before change", currentSlide, nextSlide);
+  //   },
+  //   afterChange: function(currentSlide) {
+  //     console.log("after change", currentSlide);
+  //   }
+  // };
+//-------------------------------------------------------------------------------------
  const getProduct = async ()=>{
     let {data} = await axios.get(`${baseUrl}/products/${productId}`)
     setProduct(data.data)
@@ -120,15 +148,15 @@ export default function ProductDetails() {
                 <img src={product.imageCover} className='img-fluid' alt="" />
             </div> */}
             <div className='col-md-6 mt-5 '>
-            <Slider {...settings}>
+             <Slider {...settings}>
             {product.images?.map((item)=>{
         return <img src={item} className=' w-100' height={550}  alt=""  />
       })}
-        </Slider>
+         </Slider> 
             </div>
 
             <div className="col-md-6 mt-5 py-5 d-flex justify-content-between align-items-center ">
-                <div className='mt-5 product py-5'>
+                <div className='mt-5  py-5'>
                     <div className='d-flex justify-content-between align-items-center '>
                         <h3 className='my-2'>{product.title}</h3> 
                         {wishlist.some(obj => obj._id === product._id)?<i onClick={()=>{deleteitem(product._id) }} className="fa-solid fa-heart text-danger"></i> : <i onClick={()=>{addProductWishList(product._id)}} className="fa-regular fa-heart "></i> }
@@ -138,7 +166,7 @@ export default function ProductDetails() {
                     <p className='my-2'>{product.description}</p>
                     <h6 className='text-main my-2'>{product.category?.name}</h6>
                     <h6 className='text-main my-2'>{product.brand?.name}</h6>
-                        <div className='d-flex justify-content-between align-items-center my-3'>
+                        <div className='d-flex justify-content-between align-items-center my-4'>
 
                         <span>{product.price} EGP</span>
                             <div >
@@ -148,7 +176,7 @@ export default function ProductDetails() {
                         </div>
                            
                    
-                        <button onClick={()=>{addProduct(product._id)}} className='btn bg-main text-white w-100'>Add To Cart</button>
+                        <button onClick={()=>{addProduct(product._id)}} className='btn bg-main text-white w-100 my-5'>Add To Cart</button>
                     
                 </div>
             </div>

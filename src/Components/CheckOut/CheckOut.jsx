@@ -59,9 +59,10 @@ export default function CheckOut() {
    
             <label htmlFor="city">City</label>
             <input onChange={checkoutFormik.handleChange} onBlur={checkoutFormik.handleBlur} value={checkoutFormik.values.city} type="text" name='city' id='city' className='form-control my-3' />
-            <div className="d-flex   align-items-center my-5">
-              <label className="me-5">Payment Type</label>
-              <div className="d-flex justify-content-center align-items-center ">
+            <label className="me-5">Payment Type</label>
+            <div className="d-flex   align-items-center my-5  col-sm-12">
+              
+              <div className="d-flex justify-content-center align-items-center col-lg-6 col-md-6 col-sm-12 ">
                 
                 <div className="form-check form-check-inline mx-5">
                   <input
@@ -70,7 +71,7 @@ export default function CheckOut() {
                     name="paymentType"
                     id="COD"
                     value="COD"
-                    className="mx-2"
+                    className="mx-2 "
                   />
                    <i className="fa-solid fa-sack-dollar"></i> Cash
                   <br />
@@ -82,7 +83,7 @@ export default function CheckOut() {
                     name="paymentType"
                     id="Card"
                     value="Card"
-                    className="mx-2"
+                    className="mx-2 "
                   />
                   <i class="fa-brands fa-cc-visa"></i> Card
                   <br />

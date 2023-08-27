@@ -7,6 +7,8 @@ import ProjectLoading from '../ProjectLoading/ProjectLoading.jsx'
 
 export default function Cart() {
   let {getUserCart, removeCartItem,updatequantity,getCartCount } =  useContext(storeContext)
+ let {count } =   useContext(storeContext)
+
   let [cart , setCart]= useState([])
   let [price , setPrice]= useState([])
   
@@ -62,7 +64,7 @@ export default function Cart() {
   
   return (
     <>       
-                   {cart.length !=0? <div className='container w-75 mt-5 bg-main-light py-5'>
+        {count!=0 ? <> {cart.length !=0? <div className='container w-75 mt-5 bg-main-light py-5'>
             <div className='bg-main-light my-4 p-3 '>
                 <h3 className='fw-bolder'>Shop Cart</h3>
                 <h6 className='text-main my-4 '><span className='fw-bolder'>Total Cart price :</span> {price}  EGP</h6>
@@ -83,7 +85,7 @@ export default function Cart() {
                           <span className='mx-2'>{item.count}</span>
                           <button onClick={()=>{
                              {item.count-1 >1 ?  updateQuantityinCart(item.product._id,item.count-1) : updateQuantityinCart(item.product._id,1)}
-                            // updateQuantityinCart(item.product._id,item.count-1)
+                            
                             }} className='btn btn-border '>-</button>
                         </div>
 
@@ -100,7 +102,13 @@ export default function Cart() {
 
                 </div> 
 
-        </div>  : <ProjectLoading/>}   
+        </div>  : <ProjectLoading/> } </> : <div className='container my-5 py-3 w-50 m-auto vh-100
+         bg-main-light d-flex justify-content-center align-items-center'>
+        <div><h1 className='text-main text-center '> Cart is Empty.Added Product , If you Want </h1></div>
+        
+       </div>} 
+
+        {/* */}
 
         {/*   </> :<>   <div className='container mt-5 py-5 w-50 m-auto vh-100 bg-main-light d-flex justify-content-center align-items-center'>
     <div><h1 className='text-main text-center '> Cart is Empty,Added Product</h1></div>
