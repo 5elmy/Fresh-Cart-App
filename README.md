@@ -1,4 +1,4 @@
-<img src="https://github.com/5elmy/Fresh-Cart-App/assets/115832929/dde950e4-19d2-41a7-8c76-f7a708c113c8"/>
+<img width="400" src="https://github.com/5elmy/Fresh-Cart-App/assets/115832929/dde950e4-19d2-41a7-8c76-f7a708c113c8"/>
 <img src=""/>
 <img src=""/>
 # Getting Started with Create React App
