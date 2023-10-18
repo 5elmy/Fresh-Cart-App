@@ -1,8 +1,6 @@
 # Getting Started with Fresh-Cart-App
 <img width="400" src="https://github.com/5elmy/Fresh-Cart-App/assets/115832929/d48106d5-3990-4320-b2d9-5315945e628b"/>
 <img width="400" src="https://github.com/5elmy/Fresh-Cart-App/assets/115832929/49642c0a-989f-45f6-ae7a-3c7a090ef532"/>
-<img width="400" src="https://github.com/5elmy/Fresh-Cart-App/assets/115832929/dde950e4-19d2-41a7-8c76-f7a708c113c8"/>
-<img width="400" src="https://github.com/5elmy/Fresh-Cart-App/assets/115832929/c6ef12c5-7140-4493-b881-a938d75fb92b"/>
 <img width="400" src="https://github.com/5elmy/Fresh-Cart-App/assets/115832929/6b072aae-1db9-4be2-b2c9-4d13c26a64af"/>
 <img  width="400" src="https://github.com/5elmy/Fresh-Cart-App/assets/115832929/83e84bb7-5094-4217-a48a-981bb608b8dc"/>
 <img width="400" src="https://github.com/5elmy/Fresh-Cart-App/assets/115832929/b80d5178-bc79-4263-90a2-8eb8a6c495b5"/>
@@ -11,7 +9,8 @@
 <img width="400" src="https://github.com/5elmy/Fresh-Cart-App/assets/115832929/8720439b-d0f1-47f1-932f-34b07f507085"/>
 <img width="400" src="https://github.com/5elmy/Fresh-Cart-App/assets/115832929/8e154ce9-f6d9-4115-a47c-26cffab299ba"/>
 <img width="400" src="https://github.com/5elmy/Fresh-Cart-App/assets/115832929/19c1784f-5d60-41d1-a9c9-a7d26bf45665"/>
-
+<img width="400" src="https://github.com/5elmy/Fresh-Cart-App/assets/115832929/dde950e4-19d2-41a7-8c76-f7a708c113c8"/>
+<img width="400" src="https://github.com/5elmy/Fresh-Cart-App/assets/115832929/c6ef12c5-7140-4493-b881-a938d75fb92b"/>
 
 ## Available Scripts
 
