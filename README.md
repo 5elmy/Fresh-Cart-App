@@ -1,26 +1,17 @@
+# Getting Started with Fresh-Cart-App
 <img width="400" src="https://github.com/5elmy/Fresh-Cart-App/assets/115832929/fee8cf15-3c50-4e34-833a-a8e2e5345b5d"/>
 <img width="400" src="https://github.com/5elmy/Fresh-Cart-App/assets/115832929/a90ac5a6-a9a4-404a-8104-5b78594f0015"/>
-
-
-
-
 <img width="400" src="https://github.com/5elmy/Fresh-Cart-App/assets/115832929/dde950e4-19d2-41a7-8c76-f7a708c113c8"/>
 <img width="400" src="https://github.com/5elmy/Fresh-Cart-App/assets/115832929/c6ef12c5-7140-4493-b881-a938d75fb92b"/>
 <img width="400" src="https://github.com/5elmy/Fresh-Cart-App/assets/115832929/6b072aae-1db9-4be2-b2c9-4d13c26a64af"/>
 <img  width="400" src="https://github.com/5elmy/Fresh-Cart-App/assets/115832929/83e84bb7-5094-4217-a48a-981bb608b8dc"/>
-
 <img width="400" src="https://github.com/5elmy/Fresh-Cart-App/assets/115832929/b80d5178-bc79-4263-90a2-8eb8a6c495b5"/>
 <img width="400" src="https://github.com/5elmy/Fresh-Cart-App/assets/115832929/19b1afff-e694-4c91-9b1a-eea495ad15c7"/>
-
-
 <img width="400" src="https://github.com/5elmy/Fresh-Cart-App/assets/115832929/a0f6e22a-bdb3-4b1f-9142-c6583772815f"/>
 <img width="400" src="https://github.com/5elmy/Fresh-Cart-App/assets/115832929/8720439b-d0f1-47f1-932f-34b07f507085"/>
 <img width="400" src="https://github.com/5elmy/Fresh-Cart-App/assets/115832929/8e154ce9-f6d9-4115-a47c-26cffab299ba"/>
 <img width="400" src="https://github.com/5elmy/Fresh-Cart-App/assets/115832929/19c1784f-5d60-41d1-a9c9-a7d26bf45665"/>
 
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
