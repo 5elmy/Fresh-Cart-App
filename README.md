@@ -1,5 +1,15 @@
+<img width="400" src="https://github.com/5elmy/Fresh-Cart-App/assets/115832929/fee8cf15-3c50-4e34-833a-a8e2e5345b5d"/>
+<img width="400" src="https://github.com/5elmy/Fresh-Cart-App/assets/115832929/a90ac5a6-a9a4-404a-8104-5b78594f0015"/>
+<img width="340" src="https://github.com/5elmy/Fresh-Cart-App/assets/115832929/3c6635f8-fab6-4741-82cd-54a9fa44d2ef"/>
+
+
 <img width="400" src="https://github.com/5elmy/Fresh-Cart-App/assets/115832929/dde950e4-19d2-41a7-8c76-f7a708c113c8"/>
 <img width="400" src="https://github.com/5elmy/Fresh-Cart-App/assets/115832929/c6ef12c5-7140-4493-b881-a938d75fb92b"/>
+<img width="400" src="https://github.com/5elmy/Fresh-Cart-App/assets/115832929/6b072aae-1db9-4be2-b2c9-4d13c26a64af"/>
+<img  width="400" src="https://github.com/5elmy/Fresh-Cart-App/assets/115832929/83e84bb7-5094-4217-a48a-981bb608b8dc"/>
+
+<img width="340" src="https://github.com/5elmy/Fresh-Cart-App/assets/115832929/a0f6e22a-bdb3-4b1f-9142-c6583772815f"/>
+<img width="340" src="https://github.com/5elmy/Fresh-Cart-App/assets/115832929/19b1afff-e694-4c91-9b1a-eea495ad15c7"/>
 
 # Getting Started with Create React App
 
