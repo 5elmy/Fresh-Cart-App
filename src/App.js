@@ -135,7 +135,7 @@ export default function App() {
       path: "",
       element: (
         <AuthContextProvider>
-          <Suspense fallback={<div className="d-flex justify-content-center align-item-center"> Loading </div>}>
+          <Suspense fallback={<div className="d-flex justify-content-center align-items-center vh-100 text-success"> <div><i className='fas fa-spinner fa-spin fa-1'></i></div> Loading Fresh Cart </div>}>
             <MainLayOut />
           </Suspense>
         </AuthContextProvider>
